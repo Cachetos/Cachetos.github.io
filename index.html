@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamer Económico - Tips para jugar sin gastar mucho</title>
+    <title>Gamer Económico - Juega Más, Gasta Menos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,65 +20,95 @@
             <a href="#juegos-gratis">Juegos Gratis</a>
             <a href="#setup">Setup Económico</a>
             <a href="#ofertas">Ofertas</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container" id="inicio">
         <!-- Artículo Destacado -->
         <article class="destacado">
-            <h2>🎯 Los 5 juegos Free-to-Play que debes probar</h2>
+            <h2>🎯 Los Mejores Juegos Gratis de 2024</h2>
             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Juegos gratis">
-            <p>Descubre los mejores juegos gratuitos que te darán horas de diversión sin gastar un euro.</p>
+            <p>Descubre los juegos free-to-play que te darán horas de diversión sin gastar un euro.</p>
             
-            <!-- ENLACES QUE SÍ FUNCIONAN -->
-            <a href="https://store.steampowered.com/search/?maxprice=free&sort_by=Reviews_DESC" class="boton" target="_blank">🎮 Ver Juegos Gratis en Steam</a>
-            <a href="https://www.epicgames.com/store/es-ES/free-games" class="boton" target="_blank">🆓 Juegos Gratis Epic Games</a>
+            <!-- ENLACES EXTERNOS QUE SÍ FUNCIONAN -->
+            <div class="enlaces-externos">
+                <a href="https://store.steampowered.com/search/?maxprice=free&sort_by=Reviews_DESC" class="boton" target="_blank">🎮 Steam Gratis</a>
+                <a href="https://www.epicgames.com/store/es-ES/free-games" class="boton" target="_blank">🆓 Epic Games</a>
+                <a href="https://www.amazon.es/s?k=gaming+barato" class="boton" target="_blank">🛒 Amazon Ofertas</a>
+            </div>
         </article>
 
         <!-- Grid de Artículos -->
         <div class="grid-articulos">
             <article class="articulo">
-                <h3>🖥️ Setup Gaming Económico</h3>
-                <p>Aprende a montar un equipo gaming por menos de 300€.</p>
-                <a href="https://www.amazon.es/s?k=gaming+setup+barato&__mk_es_ES=ÅMÅŽÕÑ" class="boton-pequeno" target="_blank">🛒 Ver en Amazon</a>
+                <h3>🖥️ Setup por 250€</h3>
+                <p>Aprende a montar un equipo gaming económico.</p>
+                <a href="https://www.amazon.es/s?k=setup+gaming+economico" class="boton-pequeno" target="_blank">Ver Componentes</a>
             </article>
 
             <article class="articulo">
-                <h3>💰 Ofertas de Steam</h3>
-                <p>Los mejores descuentos de la semana.</p>
-                <a href="https://store.steampowered.com/specials" class="boton-pequeno" target="_blank">🔥 Ver Ofertas</a>
+                <h3>💰 Ofertas Steam</h3>
+                <p>Descuentos increíbles esta semana.</p>
+                <a href="https://store.steampowered.com/specials" class="boton-pequeno" target="_blank">Ver Ofertas</a>
             </article>
 
             <article class="articulo">
-                <h3>🎯 Guías para Mejorar</h3>
-                <p>Aprende a ganar en tus juegos favoritos.</p>
-                <a href="#guias" class="boton-pequeno">📚 Leer Guías</a>
+                <h3>🎯 Guías Gaming</h3>
+                <p>Mejora tu skill en cualquier juego.</p>
+                <a href="#guias" class="boton-pequeno">Leer Guías</a>
             </article>
         </div>
 
-        <!-- Secciones adicionales -->
-        <section id="juegos-gratis" style="margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+        <!-- SECCIONES INTERNAS (funcionan con #) -->
+        <section id="juegos-gratis" class="seccion">
             <h2>🎮 Juegos Gratis Recomendados</h2>
-            <p><strong>Fortnite</strong> - Battle Royale gratuito con constantes actualizaciones</p>
-            <p><strong>Valorant</strong> - Shooter táctico de Riot Games (como Counter-Strike)</p>
-            <p><strong>Warframe</strong> - Juego de acción y disparos con muchísimo contenido</p>
-            <a href="https://store.steampowered.com/search/?maxprice=free&sort_by=Reviews_DESC" class="boton" target="_blank">Explorar Más Juegos Gratis</a>
+            <div class="juego">
+                <h4>Fortnite</h4>
+                <p>Battle Royale gratuito con constantes actualizaciones y eventos.</p>
+                <a href="https://www.fortnite.com/download" class="boton-pequeno" target="_blank">Descargar</a>
+            </div>
+            <div class="juego">
+                <h4>Valorant</h4>
+                <p>Shooter táctico competitivo de Riot Games.</p>
+                <a href="https://playvalorant.com/" class="boton-pequeno" target="_blank">Jugar Gratis</a>
+            </div>
         </section>
 
-        <section id="ofertas" style="margin-top: 2rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
-            <h2>💰 Ofertas Destacadas</h2>
-            <p>Revisa regularmente estas páginas para encontrar las mejores ofertas:</p>
-            <a href="https://www.instant-gaming.com/es/" class="boton-pequeno" target="_blank">Instant Gaming</a>
-            <a href="https://www.g2a.com/" class="boton-pequeno" target="_blank">G2A</a>
-            <a href="https://www.hrkgame.com/es/" class="boton-pequeno" target="_blank">HRK Game</a>
+        <section id="setup" class="seccion">
+            <h2>🖥️ Setup Gaming Económico</h2>
+            <p>Componentes recomendados para armar un PC gaming por menos de 300€:</p>
+            <ul>
+                <li>Procesador: Intel i3 o AMD Ryzen 3</li>
+                <li>GPU: NVIDIA GTX 1650 o similar</li>
+                <li>8GB RAM, SSD 256GB</li>
+            </ul>
+            <a href="https://www.amazon.es/s?k=componentes+pc+gaming+economico" class="boton" target="_blank">Ver en Amazon</a>
+        </section>
+
+        <section id="ofertas" class="seccion">
+            <h2>💰 Mejores Sitios de Ofertas</h2>
+            <div class="enlaces-ofertas">
+                <a href="https://www.instant-gaming.com/es/" target="_blank">Instant Gaming</a>
+                <a href="https://www.g2a.com/" target="_blank">G2A</a>
+                <a href="https://www.hrkgame.com/es/" target="_blank">HRK Game</a>
+            </div>
+        </section>
+
+        <section id="contacto" class="seccion">
+            <h2>📞 Contacto</h2>
+            <p>¿Tienes preguntas o sugerencias? Escríbeme:</p>
+            <a href="mailto:tuemail@gmail.com" class="boton">✉️ Enviar Email</a>
         </section>
     </main>
 
     <footer>
         <div class="container">
             <p>&copy; 2024 Gamer Económico - Creado por Cachetos</p>
-            <p><a href="mailto:tuemail@gmail.com">Contacto</a> | 
-               <a href="https://github.com/cachetos" target="_blank">Mi GitHub</a></p>
+            <p>
+                <a href="#inicio">↑ Volver arriba</a> | 
+                <a href="https://github.com/cachetos" target="_blank">Mi GitHub</a>
+            </p>
         </div>
     </footer>
 </body>
