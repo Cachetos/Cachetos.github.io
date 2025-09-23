@@ -5,175 +5,309 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Económico - Juega Más, Gasta Menos</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <!-- Fondo animado -->
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <!-- Header con efecto glass -->
+    <header class="glass-header">
         <div class="container">
-            <h1>🎮 Gamer Económico</h1>
-            <p>Juega más, gasta menos</p>
+            <div class="header-content">
+                <h1 class="title-glitch">🎮 Gamer Económico</h1>
+                <p class="subtitle">Juega más, gasta menos • <span class="typing-effect"></span></p>
+                <div class="header-stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>+500 gamers</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>4.8/5 rating</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>+€50k ahorrados</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <nav>
+    <!-- Navegación flotante -->
+    <nav class="floating-nav">
         <div class="container">
-            <a href="#inicio">Inicio</a>
-            <a href="#juegos-gratis">Juegos Gratis</a>
-            <a href="#setup">Setup Económico</a>
-            <a href="#ofertas">Ofertas</a>
-            <a href="#contacto">Contacto</a>
+            <div class="nav-content">
+                <a href="#inicio" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#setup" class="nav-link">
+                    <i class="fas fa-desktop"></i>
+                    <span>Setup</span>
+                </a>
+                <a href="#juegos" class="nav-link">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Juegos</span>
+                </a>
+                <a href="#ofertas" class="nav-link">
+                    <i class="fas fa-tag"></i>
+                    <span>Ofertas</span>
+                </a>
+                <a href="#contacto" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
         </div>
     </nav>
 
     <main class="container" id="inicio">
-        <!-- Artículo Destacado -->
-        <article class="destacado">
-            <h2>🎯 Los Mejores Juegos Gratis de 2024</h2>
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Juegos gratis">
-            <p>Descubre los juegos free-to-play que te darán horas de diversión sin gastar un euro.</p>
-            
-            <div class="enlaces-externos">
-                <a href="https://store.steampowered.com/search/?maxprice=free&sort_by=Reviews_DESC" class="boton" target="_blank">🎮 Steam Gratis</a>
-                <a href="https://www.epicgames.com/store/es-ES/free-games" class="boton" target="_blank">🆓 Epic Games</a>
-            </div>
-        </article>
-
-        <!-- Banner de Ofertas Amazon -->
-        <div class="banner-afiliado">
-            <h3>🔥 Ofertas Gaming en Amazon</h3>
-            <p>Aprovecha los descuentos en productos gaming esta semana</p>
-            <a href="https://www.amazon.es/s?k=gaming+ofertas&__mk_es_ES=ÅMÅŽÕÑ&tag=mario022a-21" class="boton" target="_blank">Ver Ofertas</a>
-        </div>
-
-        <!-- Grid de Artículos -->
-        <div class="grid-articulos">
-            <article class="articulo">
-                <h3>🖥️ Setup por 250€</h3>
-                <p>Aprende a montar un equipo gaming económico.</p>
-                <a href="#setup" class="boton-pequeno">Ver Recomendaciones</a>
-            </article>
-
-            <article class="articulo">
-                <h3>💰 Ofertas Steam</h3>
-                <p>Descuentos increíbles esta semana.</p>
-                <a href="https://store.steampowered.com/specials" class="boton-pequeno" target="_blank">Ver Ofertas</a>
-            </article>
-
-            <article class="articulo">
-                <h3>🎯 Guías Gaming</h3>
-                <p>Mejora tu skill en cualquier juego.</p>
-                <a href="#guias" class="boton-pequeno">Leer Guías</a>
-            </article>
-        </div>
-
-        <!-- SECCIÓN SETUP CON PRODUCTOS AMAZON -->
-        <section id="setup" class="seccion">
-            <h2>🖥️ Mi Setup Gaming Recomendado</h2>
-            <p>Estos son los productos que recomiendo para un setup económico y de calidad:</p>
-            
-            <!-- Producto 1: Auriculares -->
-            <div class="producto">
-                <h3>🎧 Auriculares HyperX Cloud Stinger</h3>
-                <p>Calidad de sonido excelente para gaming. Cómodos y duraderos.</p>
-                <p><strong>Precio aproximado: €45</strong></p>
-                <a href="https://www.amazon.es/dp/B01LZZ5C5X?tag=mario022a-21" class="boton-afiliado" target="_blank">🛒 Ver en Amazon</a>
-            </div>
-
-            <!-- Producto 2: Mouse -->
-            <div class="producto">
-                <h3>🐭 Mouse Gaming Logitech G203</h3>
-                <p>Precisión perfecta para juegos FPS. Iluminación RGB customizable.</p>
-                <p><strong>Precio aproximado: €25</strong></p>
-                <a href="https://www.amazon.es/dp/B07C4Z4V6S?tag=mario022a-21" class="boton-afiliado" target="_blank">🛒 Ver en Amazon</a>
-            </div>
-
-            <!-- Producto 3: Teclado -->
-            <div class="producto">
-                <h3>⌨️ Teclado Redragon Kumara K552</h3>
-                <p>Teclado mecánico económico ideal para gaming. Retroiluminación LED.</p>
-                <p><strong>Precio aproximado: €40</strong></p>
-                <a href="https://www.amazon.es/dp/B016M91SS0?tag=mario022a-21" class="boton-afiliado" target="_blank">🛒 Ver en Amazon</a>
-            </div>
-
-            <!-- Producto 4: Monitor -->
-            <div class="producto">
-                <h3>🖥️ Monitor AOC 24G2U 144Hz</h3>
-                <p>Monitor gaming con 144Hz para gameplay suave. Panel IPS de 24".</p>
-                <p><strong>Precio aproximado: €180</strong></p>
-                <a href="https://www.amazon.es/dp/B07Y8MGYM5?tag=mario022a-21" class="boton-afiliado" target="_blank">🛒 Ver en Amazon</a>
-            </div>
-
-            <!-- Producto 5: Alfombrón -->
-            <div class="producto">
-                <h3>🐭 Alfombrón Gaming Grande</h3>
-                <p>Alfombrón XL para mouse con superficie de control precisa.</p>
-                <p><strong>Precio aproximado: €15</strong></p>
-                <a href="https://www.amazon.es/dp/B08C5ZQJ7L?tag=mario022a-21" class="boton-afiliado" target="_blank">🛒 Ver en Amazon</a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Transforma tu <span class="gradient-text">Experiencia Gaming</span> sin Arruinarte</h2>
+                    <p class="hero-description">Descubre los secretos para disfrutar del gaming de calidad con el mejor ratio precio-rendimiento del mercado.</p>
+                    <div class="hero-buttons">
+                        <a href="#setup" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Ver Setup Recomendado
+                        </a>
+                        <a href="#ofertas" class="btn btn-secondary">
+                            <i class="fas fa-bolt"></i>
+                            Ofertas Flash
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Setup Gaming">
+                        <div class="card-badge">🔥 TOP VENDIDO</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- SECCIÓN JUEGOS GRATIS -->
-        <section id="juegos-gratis" class="seccion">
-            <h2>🎮 Juegos Gratis Recomendados</h2>
-            
-            <div class="juego">
-                <h4>Fortnite</h4>
-                <p>Battle Royale gratuito con constantes actualizaciones y eventos.</p>
-                <a href="https://www.fortnite.com/download" class="boton-pequeno" target="_blank">Descargar</a>
-            </div>
-            
-            <div class="juego">
-                <h4>Valorant</h4>
-                <p>Shooter táctico competitivo de Riot Games.</p>
-                <a href="https://playvalorant.com/" class="boton-pequeno" target="_blank">Jugar Gratis</a>
-            </div>
-
-            <div class="juego">
-                <h4>Warframe</h4>
-                <p>Juego de acción free-to-play con gráficos impresionantes.</p>
-                <a href="https://www.warframe.com/" class="boton-pequeno" target="_blank">Descargar</a>
-            </div>
-        </section>
-
-        <!-- SECCIÓN OFERTAS -->
-        <section id="ofertas" class="seccion">
-            <h2>💰 Mejores Sitios de Ofertas</h2>
-            <p>Estos son mis sitios favoritos para encontrar descuentos en juegos:</p>
-            
-            <div class="enlaces-ofertas">
-                <a href="https://www.instant-gaming.com/es/" class="boton-pequeno" target="_blank">Instant Gaming</a>
-                <a href="https://www.g2a.com/" class="boton-pequeno" target="_blank">G2A</a>
-                <a href="https://www.hrkgame.com/es/" class="boton-pequeno" target="_blank">HRK Game</a>
-            </div>
-
-            <!-- Banner adicional de Amazon -->
-            <div class="banner-afiliado" style="margin-top: 2rem;">
-                <h3>🎁 Ofertas Flash Amazon</h3>
-                <p>Descuentos temporales en productos gaming</p>
-                <a href="https://www.amazon.es/deals?tag=mario022a-21" class="boton" target="_blank">Ver Ofertas Flash</a>
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card" data-count="250">
+                    <i class="fas fa-euro-sign"></i>
+                    <h3>€250</h3>
+                    <p>Setup completo</p>
+                </div>
+                <div class="stat-card" data-count="144">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>144Hz</h3>
+                    <p>Fluidez garantizada</p>
+                </div>
+                <div class="stat-card" data-count="98">
+                    <i class="fas fa-percentage"></i>
+                    <h3>98%</h3>
+                    <p>Clientes satisfechos</p>
+                </div>
+                <div class="stat-card" data-count="24">
+                    <i class="fas fa-clock"></i>
+                    <h3>24h</h3>
+                    <p>Soporte rápido</p>
+                </div>
             </div>
         </section>
 
-        <!-- SECCIÓN CONTACTO -->
-        <section id="contacto" class="seccion">
-            <h2>📞 Contacto</h2>
-            <p>¿Tienes preguntas o sugerencias? Escríbeme:</p>
-            <a href="mailto:mariofeij0710@gmail.com" class="boton">✉️ Enviar Email</a>
-            
-            <div style="margin-top: 2rem; padding: 1rem; background: #fff; border-radius: 5px;">
-                <h4>💡 Sobre los Enlaces de Amazon</h4>
-                <p><small>Este sitio utiliza enlaces de afiliados de Amazon. Si realizas una compra a través de estos enlaces, recibo una pequeña comisión sin costo adicional para ti. ¡Gracias por apoyar el sitio!</small></p>
+        <!-- Productos Destacados -->
+        <section id="setup" class="products-section">
+            <div class="section-header">
+                <h2 class="section-title">🎯 Productos <span class="gradient-text">Destacados</span></h2>
+                <p class="section-subtitle">Los más vendidos y mejor valorados por la comunidad</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-badge">MÁS VENDIDO</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Auriculares HyperX">
+                    </div>
+                    <div class="product-content">
+                        <h3>🎧 HyperX Cloud Stinger</h3>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.8 (2.4k)</span>
+                        </div>
+                        <p class="product-description">Sonido surround de calidad profesional. Comodidad extrema para largas sesiones.</p>
+                        <div class="product-price">
+                            <span class="price-old">€59.99</span>
+                            <span class="price-new">€45.99</span>
+                            <span class="price-discount">-23%</span>
+                        </div>
+                        <a href="https://www.amazon.es/dp/B01LZZ5C5X?tag=mario022a-21" class="btn btn-amazon" target="_blank">
+                            <i class="fab fa-amazon"></i>
+                            Comprar en Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-badge">OFERTA FLASH</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Mouse Logitech">
+                    </div>
+                    <div class="product-content">
+                        <h3>🐭 Logitech G203</h3>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐☆ <span>4.6 (1.8k)</span>
+                        </div>
+                        <p class="product-description">Precisión milimétrica para FPS. RGB personalizable. Diseño ergonómico.</p>
+                        <div class="product-price">
+                            <span class="price-old">€34.99</span>
+                            <span class="price-new">€25.49</span>
+                            <span class="price-discount">-27%</span>
+                        </div>
+                        <a href="https://www.amazon.es/dp/B07C4Z4V6S?tag=mario022a-21" class="btn btn-amazon" target="_blank">
+                            <i class="fab fa-amazon"></i>
+                            Comprar en Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-badge">NUEVO</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Teclado Redragon">
+                    </div>
+                    <div class="product-content">
+                        <h3>⌨️ Redragon Kumara</h3>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.7 (3.1k)</span>
+                        </div>
+                        <p class="product-description">Teclado mecánico anti-ghosting. Retroiluminación LED multicolor.</p>
+                        <div class="product-price">
+                            <span class="price-old">€49.99</span>
+                            <span class="price-new">€39.99</span>
+                            <span class="price-discount">-20%</span>
+                        </div>
+                        <a href="https://www.amazon.es/dp/B016M91SS0?tag=mario022a-21" class="btn btn-amazon" target="_blank">
+                            <i class="fab fa-amazon"></i>
+                            Comprar en Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Juegos Gratis -->
+        <section id="juegos" class="games-section">
+            <div class="section-header">
+                <h2 class="section-title">🎮 Juegos <span class="gradient-text">Gratis</span> de Calidad</h2>
+                <p class="section-subtitle">Diversión infinita sin gastar un céntimo</p>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fortnite">
+                    </div>
+                    <div class="game-content">
+                        <h3>Fortnite</h3>
+                        <p>Battle Royale con eventos constantes y cross-play</p>
+                        <div class="game-platforms">
+                            <span>PC</span>
+                            <span>PS5</span>
+                            <span>XBOX</span>
+                            <span>Mobile</span>
+                        </div>
+                        <a href="https://www.fortnite.com/download" class="btn btn-game" target="_blank">
+                            <i class="fas fa-download"></i>
+                            Descargar Gratis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Valorant">
+                    </div>
+                    <div class="game-content">
+                        <h3>Valorant</h3>
+                        <p>Shooter táctico 5v5 de Riot Games</p>
+                        <div class="game-platforms">
+                            <span>PC</span>
+                        </div>
+                        <a href="https://playvalorant.com/" class="btn btn-game" target="_blank">
+                            <i class="fas fa-play"></i>
+                            Jugar Gratis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>🚀 No Te Pierdas las Mejores Ofertas</h2>
+                    <p>Recibe alertas exclusivas de descuentos en productos gaming</p>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="tuemail@gmail.com" class="newsletter-input">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Suscribirse
+                    </button>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Gamer Económico - Creado por Mario</p>
-            <p>
-                <a href="#inicio">↑ Volver arriba</a> | 
-                <a href="https://github.com/cachetos" target="_blank">Mi GitHub</a>
-            </p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎮 Gamer Económico</h3>
+                    <p>Ayudando a gamers a maximizar su experiencia sin maxizar su gasto.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <a href="#setup">Productos Destacados</a>
+                    <a href="#juegos">Juegos Gratis</a>
+                    <a href="#ofertas">Ofertas Flash</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> mariofeij0710@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Soporte 24/7</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gamer Económico. Todos los derechos reservados.</p>
+                <p>Este sitio utiliza enlaces de afiliados de Amazon. Las compras realizadas a través de nuestros enlaces generan una pequeña comisión sin costo adicional para ti.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Script para animaciones -->
+    <script src="script.js"></script>
 </body>
 </html>
