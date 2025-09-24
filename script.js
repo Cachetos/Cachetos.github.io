@@ -1,51 +1,80 @@
-// Automatizaciones SILENCIOSAS que funcionan pero no se muestran
-function initAutomatizacionesSilenciosas() {
-    // Contador de visitas (invisible para el usuario)
-    let visitas = localStorage.getItem('visitas') || 0;
-    visitas++;
-    localStorage.setItem('visitas', visitas);
+// Animaciones al hacer scroll
+document.addEventListener('DOMContentLoaded', function() {
+    // Efecto de escritura automática
+    const texts = ['gaming económico', 'setup profesional', 'ahorro inteligente'];
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
     
-    // Rotador de precios automático (sin anunciarlo)
-    function rotarPrecios() {
-        const elementosPrecio = document.querySelectorAll('.live-price');
-        elementosPrecio.forEach(precio => {
-            const precioActual = parseFloat(precio.textContent.replace('€', ''));
-            const variacion = (Math.random() * 0.1) - 0.05; // ±5%
-            const nuevoPrecio = precioActual * (1 + variacion);
-            precio.textContent = `€${nuevoPrecio.toFixed(2)}`;
-        });
-    }
-    
-    // Actualizar cada 30 minutos silenciosamente
-    setInterval(rotarPrecios, 30 * 60 * 1000);
-    
-    // Efecto typing discreto
-    const textos = ['gaming económico', 'calidad premium', 'precios actualizados', 'reviews honestas'];
-    let textoIndex = 0;
-    let charIndex = 0;
-    
-    function typeEffect() {
-        if (textoIndex === textos.length) textoIndex = 0;
+    function typeWriter() {
+        if (count === texts.length) {
+            count = 0;
+        }
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
         
-        const textoActual = textos[textoIndex];
-        const textoParcial = textoActual.slice(0, charIndex + 1);
+        document.querySelector('.typing-effect').textContent = letter;
         
-        document.querySelector('.typing-effect').textContent = textoParcial;
-        charIndex++;
-        
-        if (charIndex === textoActual.length) {
+        if (letter.length === currentText.length) {
             setTimeout(() => {
-                textoIndex++;
-                charIndex = 0;
-                setTimeout(typeEffect, 1000);
+                count++;
+                index = 0;
+                setTimeout(typeWriter, 1000);
             }, 2000);
         } else {
-            setTimeout(typeEffect, 100);
+            setTimeout(typeWriter, 100);
         }
     }
     
-    typeEffect();
-}
-
-// Iniciar automatizaciones cuando la página cargue
-document.addEventListener('DOMContentLoaded', initAutomatizacionesSilenciosas);
+    typeWriter();
+    
+    // Animación de contadores
+    const counters = document.querySelectorAll('[data-count]');
+    const speed = 200;
+    
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText;
+            const inc = target / speed;
+            
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(animateCounters, 1);
+            } else {
+                counter.innerText = target;
+            }
+        });
+    };
+    
+    // Activar animaciones al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                if (entry.target.classList.contains('stats-grid')) {
+                    animateCounters();
+                }
+            }
+        });
+    });
+    
+    document.querySelectorAll('.stat-card, .product-card, .game-card').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Navegación suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
