@@ -3,529 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamer Económico - Automatizado</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #667eea;
-            --primary-dark: #5a6fd8;
-            --secondary: #764ba2;
-            --accent: #ff6b6b;
-            --success: #51cf66;
-            --warning: #ffd43b;
-            --text: #2c3e50;
-            --text-light: #6c757d;
-            --bg: #0f0f23;
-            --bg-light: #1a1a2e;
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: white;
-            background: var(--bg);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Animaciones de fondo */
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--glass);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-1 { width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s; }
-        .shape-2 { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 2s; }
-        .shape-3 { width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 4s; }
-        .shape-4 { width: 120px; height: 120px; top: 30%; right: 20%; animation-delay: 1s; }
-
-        /* Header con efecto glass */
-        .glass-header {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 2rem 0;
-            position: relative;
-        }
-
-        .header-content {
-            text-align: center;
-        }
-
-        .title-glitch {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glitch 5s infinite;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin: 1rem 0;
-        }
-
-        .header-stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .stat {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--glass);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            border: 1px solid var(--glass-border);
-        }
-
-        /* Navegación flotante */
-        .floating-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            margin-bottom: 2rem;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background: var(--glass);
-            border-bottom-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 0;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .gradient-text {
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: var(--glass);
-            color: white;
-            border: 1px solid var(--glass-border);
-        }
-
-        .btn-amazon {
-            background: #ff9900;
-            color: white;
-        }
-
-        .btn-game {
-            background: var(--success);
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Product Cards */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--gradient-2);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .product-image {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-image img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .price-old {
-            text-decoration: line-through;
-            color: var(--text-light);
-        }
-
-        .price-new {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--success);
-        }
-
-        .price-discount {
-            background: var(--accent);
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        /* Games Section */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .game-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
-        .game-image img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .game-content {
-            padding: 1.5rem;
-        }
-
-        .game-platforms {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .game-platforms span {
-            background: var(--glass);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        /* Newsletter */
-        .newsletter-section {
-            background: var(--gradient);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 4rem 0;
-            text-align: center;
-        }
-
-        .newsletter-content {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .newsletter-input {
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            background: white;
-            color: var(--text);
-            min-width: 300px;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-light);
-            padding: 3rem 0 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--glass);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--glass-border);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--text-light);
-        }
-
-        /* Animaciones */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50% }
-            50% { background-position: 100% 50% }
-            100% { background-position: 0% 50% }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) }
-            50% { transform: translateY(-20px) }
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0) }
-            20% { transform: translate(-2px, 2px) }
-            40% { transform: translate(-2px, -2px) }
-            60% { transform: translate(2px, 2px) }
-            80% { transform: translate(2px, -2px) }
-            100% { transform: translate(0) }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .nav-content {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .header-stats {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-       <!-- SECCIÓN MEJORADA - Automatizaciones invisibles -->
-<section class="premium-features">
-    <div class="section-header">
-        <h2 class="section-title">⭐ <span class="gradient-text">Ventajas Exclusivas</span></h2>
-        <p class="section-subtitle">Disfruta de una experiencia gaming superior</p>
-    </div>
-
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Precios en Tiempo Real</h3>
-            <p>Siempre mostramos los precios más actualizados del mercado</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Ofertas Instantáneas</h3>
-            <p>Te avisamos inmediatamente de descuentos exclusivos</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🛡️</div>
-            <h3>Calidad Verificada</h3>
-            <p>Todos los productos son probados y aprobados por gamers</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Análisis Profesional</h3>
-            <p>Reviews detalladas basadas en horas de testing real</p>
-        </div>
-    </div>
-
-    <!-- Pequeño indicador discreto -->
-    <div class="live-indicator">
-        <span class="live-dot"></span>
-        <small>Sistema actualizado en tiempo real</small>
-    </div>
-</section>
+    <title>Gamer Económico - Juega Más, Gasta Menos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
     <!-- Fondo animado -->
     <div class="background-animation">
         <div class="floating-shapes">
@@ -545,7 +27,7 @@
                 <div class="header-stats">
                     <div class="stat">
                         <i class="fas fa-users"></i>
-                        <span id="visitor-count">+500 gamers</span>
+                        <span>+500 gamers</span>
                     </div>
                     <div class="stat">
                         <i class="fas fa-star"></i>
@@ -553,7 +35,7 @@
                     </div>
                     <div class="stat">
                         <i class="fas fa-piggy-bank"></i>
-                        <span id="savings-count">+€50k ahorrados</span>
+                        <span>+€50k ahorrados</span>
                     </div>
                 </div>
             </div>
@@ -580,9 +62,9 @@
                     <i class="fas fa-tag"></i>
                     <span>Ofertas</span>
                 </a>
-                <a href="#automatizaciones" class="nav-link">
-                    <i class="fas fa-robot"></i>
-                    <span>Automatizaciones</span>
+                <a href="#contacto" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
                 </a>
             </div>
         </div>
@@ -620,35 +102,26 @@
             <div class="stats-grid">
                 <div class="stat-card" data-count="250">
                     <i class="fas fa-euro-sign"></i>
-                    <h3>€<span class="counter">250</span></h3>
+                    <h3>€250</h3>
                     <p>Setup completo</p>
                 </div>
                 <div class="stat-card" data-count="144">
                     <i class="fas fa-tachometer-alt"></i>
-                    <h3><span class="counter">144</span>Hz</h3>
+                    <h3>144Hz</h3>
                     <p>Fluidez garantizada</p>
                 </div>
                 <div class="stat-card" data-count="98">
                     <i class="fas fa-percentage"></i>
-                    <h3><span class="counter">98</span>%</h3>
+                    <h3>98%</h3>
                     <p>Clientes satisfechos</p>
                 </div>
                 <div class="stat-card" data-count="24">
                     <i class="fas fa-clock"></i>
-                    <h3><span class="counter">24</span>h</h3>
+                    <h3>24h</h3>
                     <p>Soporte rápido</p>
                 </div>
             </div>
         </section>
-
-        <!-- Ticker de precios automático -->
-        <div class="price-ticker">
-            <div class="ticker-container">
-                <div class="ticker-item">🔥 HyperX Cloud Stinger: <span class="live-price" data-asin="B01LZZ5C5X">€45.99</span></div>
-                <div class="ticker-item">🎯 Logitech G203: <span class="live-price" data-asin="B07C4Z4V6S">€25.49</span></div>
-                <div class="ticker-item">⚡ Redragon Kumara: <span class="live-price" data-asin="B016M91SS0">€39.99</span></div>
-            </div>
-        </div>
 
         <!-- Productos Destacados -->
         <section id="setup" class="products-section">
@@ -672,10 +145,10 @@
                         <p class="product-description">Sonido surround de calidad profesional. Comodidad extrema para largas sesiones.</p>
                         <div class="product-price">
                             <span class="price-old">€59.99</span>
-                            <span class="price-new live-price" data-asin="B01LZZ5C5X">€45.99</span>
+                            <span class="price-new">€45.99</span>
                             <span class="price-discount">-23%</span>
                         </div>
-                        <a href="https://amzn.to/3KiPyn5" class="btn btn-amazon" target="_blank">
+                        <a href="https://www.amazon.es/dp/B01LZZ5C5X?tag=mario022a-21" class="btn btn-amazon" target="_blank">
                             <i class="fab fa-amazon"></i>
                             Comprar en Amazon
                         </a>
@@ -696,10 +169,10 @@
                         <p class="product-description">Precisión milimétrica para FPS. RGB personalizable. Diseño ergonómico.</p>
                         <div class="product-price">
                             <span class="price-old">€34.99</span>
-                            <span class="price-new live-price" data-asin="B07C4Z4V6S">€25.49</span>
+                            <span class="price-new">€25.49</span>
                             <span class="price-discount">-27%</span>
                         </div>
-                        <a href="https://amzn.to/4gGRhPe" class="btn btn-amazon" target="_blank">
+                        <a href="https://www.amazon.es/dp/B07C4Z4V6S?tag=mario022a-21" class="btn btn-amazon" target="_blank">
                             <i class="fab fa-amazon"></i>
                             Comprar en Amazon
                         </a>
@@ -720,18 +193,18 @@
                         <p class="product-description">Teclado mecánico anti-ghosting. Retroiluminación LED multicolor.</p>
                         <div class="product-price">
                             <span class="price-old">€49.99</span>
-                            <span class="price-new live-price" data-asin="B016M91SS0">€39.99</span>
+                            <span class="price-new">€39.99</span>
                             <span class="price-discount">-20%</span>
                         </div>
-                        <a href="https://amzn.to/42aUpgd" class="btn btn-amazon" target="_blank">
+                        <a href="https://www.amazon.es/dp/B016M91SS0?tag=mario022a-21" class="btn btn-amazon" target="_blank">
                             <i class="fab fa-amazon"></i>
                             Comprar en Amazon
                         </a>
                     </div>
                 </div>
             </div>
-        </section>ç
-        
+        </section>
+
         <!-- Juegos Gratis -->
         <section id="juegos" class="games-section">
             <div class="section-header">
@@ -787,8 +260,8 @@
                     <p>Recibe alertas exclusivas de descuentos en productos gaming</p>
                 </div>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="tuemail@gmail.com" class="newsletter-input" id="newsletter-email">
-                    <button class="btn btn-primary" onclick="subscribeNewsletter()">
+                    <input type="email" placeholder="tuemail@gmail.com" class="newsletter-input">
+                    <button class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i>
                         Suscribirse
                     </button>
@@ -817,7 +290,7 @@
                     <a href="#setup">Productos Destacados</a>
                     <a href="#juegos">Juegos Gratis</a>
                     <a href="#ofertas">Ofertas Flash</a>
-                    <a href="#automatizaciones">Automatizaciones</a>
+                    <a href="#contacto">Contacto</a>
                 </div>
 
                 <div class="footer-section">
@@ -830,73 +303,11 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 Gamer Económico. Todos los derechos reservados.</p>
                 <p>Este sitio utiliza enlaces de afiliados de Amazon. Las compras realizadas a través de nuestros enlaces generan una pequeña comisión sin costo adicional para ti.</p>
-                <p id="page-stats">Página cargada <span id="load-count">0</span> veces | Última actualización: <span id="current-time"></span></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // ===== SISTEMA DE AUTOMATIZACIONES =====
-        
-        // Contador de visitantes (simulado)
-        let visitorCount = Math.floor(Math.random() * 1000) + 500;
-        document.getElementById('visitor-count').textContent = `+${visitorCount} gamers`;
-        
-        // Ahorros simulados
-        let savingsCount = Math.floor(Math.random() * 100000) + 50000;
-        document.getElementById('savings-count').textContent = `+€${savingsCount.toLocaleString()} ahorrados`;
-        
-        // Efecto de escritura automática
-        const texts = ['gaming económico', 'setup profesional', 'ahorro inteligente', 'automatizado 24/7'];
-        let count = 0;
-        let index = 0;
-        let currentText = '';
-        let letter = '';
-        
-        function typeWriter() {
-            if (count === texts.length) count = 0;
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            
-            document.querySelector('.typing-effect').textContent = letter;
-            
-            if (letter.length === currentText.length) {
-                setTimeout(() => {
-                    count++;
-                    index = 0;
-                    setTimeout(typeWriter, 1000);
-                }, 2000);
-            } else {
-                setTimeout(typeWriter, 100);
-            }
-        }
-        
-        // Animación de contadores
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.parentElement.parentElement.getAttribute('data-count'));
-                let count = 0;
-                const increment = target / 100;
-                
-                const updateCounter = () => {
-                    if (count < target) {
-                        count += increment;
-                        counter.textContent = Math.ceil(count);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                updateCounter();
-            });
-        }
-        
-        // Sistema de precios automático (simulado)
-        function updatePrices() {
-            const priceElements = document.querySelectorAll('.live-price');
-            priceElements.forEach(element => {
-                const currentPrice = parseFloat(element.textContent.replace('€', ''));
-                const change =
-
-
+    <!-- Script para animaciones -->
+    <script src="script.js"></script>
+</body>
+</html>
